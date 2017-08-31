@@ -1,0 +1,1 @@
+C:\Users\David\Documents\Visual Studio 2012\Projects\HeroClix.NET\HeroClix.NET_Tests\obj\Debug\HeroClix.NET_Tests.csprojResolveAssemblyReference.cache

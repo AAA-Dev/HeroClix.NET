@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroClix", "HeroClix\HeroClix.csproj", "{F19976F2-5661-4CFD-A9E4-C5A50147B631}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroClix_Tests", "HeroClix_Tests\HeroClix_Tests.csproj", "{0B0D7731-5C03-4568-9DE0-36A3D6A885FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F19976F2-5661-4CFD-A9E4-C5A50147B631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F19976F2-5661-4CFD-A9E4-C5A50147B631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F19976F2-5661-4CFD-A9E4-C5A50147B631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F19976F2-5661-4CFD-A9E4-C5A50147B631}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B0D7731-5C03-4568-9DE0-36A3D6A885FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B0D7731-5C03-4568-9DE0-36A3D6A885FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B0D7731-5C03-4568-9DE0-36A3D6A885FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B0D7731-5C03-4568-9DE0-36A3D6A885FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

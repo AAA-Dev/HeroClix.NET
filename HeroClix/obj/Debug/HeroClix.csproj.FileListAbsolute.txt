@@ -1,0 +1,11 @@
+C:\Users\David\Documents\Visual Studio 2012\Projects\HeroClix.NET\HeroClix.NET\bin\Debug\HeroClix.NET.exe.config
+C:\Users\David\Documents\Visual Studio 2012\Projects\HeroClix.NET\HeroClix.NET\obj\Debug\HeroClix.NET.exe
+C:\Users\David\Documents\Visual Studio 2012\Projects\HeroClix.NET\HeroClix.NET\obj\Debug\HeroClix.NET.pdb
+C:\Users\David\Documents\Visual Studio 2012\Projects\HeroClix.NET\HeroClix.NET\bin\Debug\HeroClix.NET.exe
+C:\Users\David\Documents\Visual Studio 2012\Projects\HeroClix.NET\HeroClix.NET\bin\Debug\HeroClix.NET.pdb
+C:\Users\David\Documents\Visual Studio 2012\Projects\HeroClix.NET\HeroClix\bin\Debug\HeroClix.NET.exe.config
+C:\Users\David\Documents\Visual Studio 2012\Projects\HeroClix.NET\HeroClix\obj\Debug\HeroClix.NET.exe
+C:\Users\David\Documents\Visual Studio 2012\Projects\HeroClix.NET\HeroClix\obj\Debug\HeroClix.NET.pdb
+C:\Users\David\Documents\Visual Studio 2012\Projects\HeroClix.NET\HeroClix\bin\Debug\HeroClix.NET.exe
+C:\Users\David\Documents\Visual Studio 2012\Projects\HeroClix.NET\HeroClix\bin\Debug\HeroClix.NET.pdb
+C:\Users\David\Documents\Visual Studio 2012\Projects\HeroClix.NET\HeroClix\obj\Debug\HeroClix.csprojResolveAssemblyReference.cache
