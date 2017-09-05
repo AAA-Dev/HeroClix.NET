@@ -1,5 +1,4 @@
-﻿
-namespace HeroClix.Map
+﻿namespace HeroClix.Map
 {
     public class WaterMarker : Marker
     {

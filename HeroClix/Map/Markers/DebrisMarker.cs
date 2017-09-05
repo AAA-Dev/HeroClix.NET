@@ -1,8 +1,8 @@
 ﻿namespace HeroClix.Map
 {
-    public class SmokeMarker : Marker
+    public class DebrisMarker : Marker
     {
-        public SmokeMarker(IGameElement creator)
+        public DebrisMarker(IGameElement creator)
             : base(creator)
         {
             this.terrainType = TerrainType.Hindering;

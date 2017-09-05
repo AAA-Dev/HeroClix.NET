@@ -39,6 +39,11 @@
     <Compile Include="GameElements\HeroClixCharacter.cs" />
     <Compile Include="GameElements\IGameElement.cs" />
     <Compile Include="HeroClixMain.cs" />
+    <Compile Include="Map\Markers\BarrierMarker.cs" />
+    <Compile Include="Map\Markers\ClearMarker.cs" />
+    <Compile Include="Map\Markers\DebrisMarker.cs" />
+    <Compile Include="Map\Markers\FireMarker.cs" />
+    <Compile Include="Map\Markers\IceMarker.cs" />
     <Compile Include="Map\Markers\WaterMarker.cs" />
     <Compile Include="Map\Markers\IMarker.cs" />
     <Compile Include="Map\Markers\Marker.cs" />
