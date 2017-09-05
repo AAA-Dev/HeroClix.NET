@@ -20,7 +20,7 @@ namespace HeroClix_Tests
         public void Tile_With_SingleCharacter_IsOccupied_True()
         {
             Tile tile = new Tile();
-            tile.AddGameElement(new HeroClixCharacter());
+            tile.AddGamePiece(new HeroClixCharacter());
 
             Assert.IsTrue(tile.IsOccupied);
         }
@@ -30,10 +30,10 @@ namespace HeroClix_Tests
         {
             Tile tile = new Tile();
 
-            tile.AddGameElement(new HeroClixObject());
-            tile.AddGameElement(new HeroClixObject());
+            tile.AddGamePiece(new HeroClixObject());
+            tile.AddGamePiece(new HeroClixObject());
 
-            Assert.IsTrue(tile.GetGameElements().Count == 2, "The second object was not added to the tile.");
+            Assert.IsTrue(tile.GetGamePieces().Count == 2, "The second object was not added to the tile.");
         }
 
         [TestMethod]
@@ -42,8 +42,8 @@ namespace HeroClix_Tests
         {
             Tile tile = new Tile();
 
-            tile.AddGameElement(new HeroClixCharacter());
-            tile.AddGameElement(new HeroClixCharacter());
+            tile.AddGamePiece(new HeroClixCharacter());
+            tile.AddGamePiece(new HeroClixCharacter());
         }
 
         [TestMethod]
