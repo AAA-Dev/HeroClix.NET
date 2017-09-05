@@ -6,8 +6,8 @@
     <ProjectGuid>{0B0D7731-5C03-4568-9DE0-36A3D6A885FE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HeroClix.NET_Tests</RootNamespace>
-    <AssemblyName>HeroClix.NET_Tests</AssemblyName>
+    <RootNamespace>HeroClix_Tests</RootNamespace>
+    <AssemblyName>HeroClix_Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
