@@ -9,23 +9,6 @@ namespace HeroClix_Tests
     public class TileTest
     {
         [TestMethod]
-        public void Tile_Empty_IsOccupied_False()
-        {
-            Tile tile = new Tile();
-
-            Assert.IsFalse(tile.IsOccupied);
-        }
-
-        [TestMethod]
-        public void Tile_With_SingleCharacter_IsOccupied_True()
-        {
-            Tile tile = new Tile();
-            tile.AddGamePiece(new HeroClixCharacter());
-
-            Assert.IsTrue(tile.IsOccupied);
-        }
-
-        [TestMethod]
         public void Tile_CanAddMultipleObjects()
         {
             Tile tile = new Tile();
@@ -44,6 +27,23 @@ namespace HeroClix_Tests
 
             tile.AddGamePiece(new HeroClixCharacter());
             tile.AddGamePiece(new HeroClixCharacter());
+        }
+
+        [TestMethod]
+        public void Tile_Empty_IsOccupied_False()
+        {
+            Tile tile = new Tile();
+
+            Assert.IsFalse(tile.IsOccupied);
+        }
+
+        [TestMethod]
+        public void Tile_With_SingleCharacter_IsOccupied_True()
+        {
+            Tile tile = new Tile();
+            tile.AddGamePiece(new HeroClixCharacter());
+
+            Assert.IsTrue(tile.IsOccupied);
         }
 
         [TestMethod]
