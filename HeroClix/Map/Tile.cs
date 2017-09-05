@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HeroClix.GameElements;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace HeroClix.Map
     {
         private TerrainType defaultTerrainType;
         private int elevationLevel;
-        private List<IGameElement> gameElements;
+        private List<IGamePiece> gamePieces;
         private Stack<IMarker> markers;
 
         /// <summary>
@@ -24,7 +25,7 @@ namespace HeroClix.Map
             defaultTerrainType = TerrainType.Clear;
             markers = new Stack<IMarker>();
             elevationLevel = 1;
-            gameElements = new List<IGameElement>();
+            gamePieces = new List<IGamePiece>();
         }
 
         /// <summary>
@@ -65,7 +66,7 @@ namespace HeroClix.Map
         {
             get
             {
-                return gameElements.Count(x => x.GetType().Equals(typeof(HeroClixCharacter))) > 0;
+                return gamePieces.Count(x => x.GetType().Equals(typeof(HeroClixCharacter))) > 0;
             }
         }
 
@@ -98,26 +99,26 @@ namespace HeroClix.Map
         }
 
         /// <summary>
-        /// Returns a list of GameElements currently occupying the tile.
+        /// Returns a list of GamePieces currently occupying the tile.
         /// </summary>
-        /// <returns>a list of GameElements</returns>
-        public List<IGameElement> GetGameElements()
+        /// <returns>a list of GamePieces</returns>
+        public List<IGamePiece> GetGamePieces()
         {
-            return gameElements;
+            return gamePieces;
         }
         
         /// <summary>
-        /// Adds a specified game element to a tile.
+        /// Adds a specified game piece to a tile.
         /// </summary>
-        /// <param name="element">The game element to add to the tile.</param>
-        public void AddGameElement(IGameElement element)
+        /// <param name="element">The game piece to add to the tile.</param>
+        public void AddGamePiece(IGamePiece element)
         {
             if (element is HeroClixCharacter 
-                && gameElements.Count(x => x.GetType().Equals(typeof(HeroClixCharacter))) > 0)
+                && gamePieces.Count(x => x.GetType().Equals(typeof(HeroClixCharacter))) > 0)
             {
                 throw new ArgumentException("A character is already occupying this tile.");
             }
-            gameElements.Add(element);
+            gamePieces.Add(element);
         }
     }
 }

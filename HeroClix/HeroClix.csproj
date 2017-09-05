@@ -7,8 +7,8 @@
     <ProjectGuid>{F19976F2-5661-4CFD-A9E4-C5A50147B631}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HeroClix.NET</RootNamespace>
-    <AssemblyName>HeroClix.NET</AssemblyName>
+    <RootNamespace>HeroClix</RootNamespace>
+    <AssemblyName>HeroClix</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -36,9 +36,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Compile Include="GameElements\HeroClixCharacter.cs" />
+    <Compile Include="GameElements\Characters\HeroClixCharacter.cs" />
     <Compile Include="GameElements\IGameElement.cs" />
+    <Compile Include="GameElements\IGamePiece.cs" />
     <Compile Include="HeroClixMain.cs" />
+    <Compile Include="Map\Markers\BarrierMarker.cs" />
+    <Compile Include="Map\Markers\ClearMarker.cs" />
+    <Compile Include="Map\Markers\DebrisMarker.cs" />
+    <Compile Include="Map\Markers\FireMarker.cs" />
+    <Compile Include="Map\Markers\IceMarker.cs" />
     <Compile Include="Map\Markers\WaterMarker.cs" />
     <Compile Include="Map\Markers\IMarker.cs" />
     <Compile Include="Map\Markers\Marker.cs" />
@@ -51,7 +57,7 @@
     <Compile Include="GameArea.Designer.cs">
       <DependentUpon>GameArea.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameElements\HeroClixObject.cs" />
+    <Compile Include="GameElements\Objects\HeroClixObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

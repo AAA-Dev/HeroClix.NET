@@ -5,10 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HeroClix.Map
+namespace HeroClix
 {
-    public interface IMarker : IGamePiece
+    public class HeroClixCharacter : IGamePiece
     {
-        TerrainType MyTerrainType { get; }
+        public HeroClixCharacter()
+        {
+            // TODO: Write Implementation
+        }
     }
 }
