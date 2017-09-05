@@ -5,6 +5,7 @@
         public ClearMarker(IGameElement creator)
             : base(creator)
         {
+            this.markerName = "Clear";
             this.terrainType = TerrainType.Clear;
         }
     }

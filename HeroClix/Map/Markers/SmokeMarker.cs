@@ -5,6 +5,7 @@
         public SmokeMarker(IGameElement creator)
             : base(creator)
         {
+            this.markerName = "Smoke";
             this.terrainType = TerrainType.Hindering;
         }
     }

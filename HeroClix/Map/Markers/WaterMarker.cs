@@ -5,6 +5,7 @@
         public WaterMarker(IGameElement creator)
             : base(creator)
         {
+            this.markerName = "Water";
             this.terrainType = TerrainType.Water;
         }
     }

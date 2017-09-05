@@ -5,6 +5,7 @@
         public DebrisMarker(IGameElement creator)
             : base(creator)
         {
+            this.markerName = "Debris";
             this.terrainType = TerrainType.Hindering;
         }
     }

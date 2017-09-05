@@ -33,7 +33,7 @@ namespace HeroClix.Map
         /// </summary>
         /// <param name="type">The TerrainType of the tile.</param>
         public Tile(TerrainType type)
-            :this()
+            : this()
         {
             defaultTerrainType = type;
         }
@@ -54,7 +54,7 @@ namespace HeroClix.Map
         /// <param name="type">The TerrainType of the tile.</param>
         /// <param name="elevation">The ElevationLevel of the tile.</param>
         public Tile(TerrainType type, int elevation)
-            :this(type)
+            : this(type)
         {
             elevationLevel = elevation;
         }
@@ -76,10 +76,11 @@ namespace HeroClix.Map
         /// <returns>The Tile's current TerrainType.</returns>
         public TerrainType GetTerrainType()
         {
-            if(!markers.Any()){
+            if (!markers.Any())
+            {
                 return defaultTerrainType;
             }
-            return markers.Peek().MyTerrainType;
+            return markers.Peek().GetTerrainType;
         }
 
         /// Adds a specified Marker to the tile.
@@ -87,6 +88,15 @@ namespace HeroClix.Map
         /// <param name="type">The type of Marker to add.</param>
         public void AddMarker(IMarker marker)
         {
+            if ((!markers.Any() && defaultTerrainType.Equals(TerrainType.Blocking))
+                || markers.Any() && markers.Peek().GetTerrainType.Equals(TerrainType.Blocking))
+            {
+                if (!marker.GetType().Equals(typeof(ClearMarker)) && !marker.GetType().Equals(typeof(DebrisMarker)))
+                {
+                    throw new InvalidOperationException("A " + marker.GetName() + " marker cannot be placed on Blocking terrain.");
+                }
+            }
+
             markers.Push(marker);
         }
 
@@ -106,17 +116,17 @@ namespace HeroClix.Map
         {
             return gamePieces;
         }
-        
+
         /// <summary>
         /// Adds a specified game piece to a tile.
         /// </summary>
         /// <param name="element">The game piece to add to the tile.</param>
         public void AddGamePiece(IGamePiece element)
         {
-            if (element is HeroClixCharacter 
+            if (element is HeroClixCharacter
                 && gamePieces.Count(x => x.GetType().Equals(typeof(HeroClixCharacter))) > 0)
             {
-                throw new ArgumentException("A character is already occupying this tile.");
+                throw new InvalidOperationException("A character is already occupying this tile.");
             }
             gamePieces.Add(element);
         }

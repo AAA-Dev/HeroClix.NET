@@ -9,6 +9,7 @@ namespace HeroClix.Map
     public abstract class Marker : IMarker
     {
         private IGameElement creator;
+        protected string markerName;
         protected TerrainType terrainType;
 
         protected Marker()
@@ -21,7 +22,12 @@ namespace HeroClix.Map
             creator = _creator;
         }
 
-        public TerrainType MyTerrainType
+        public string GetName()
+        {
+            return this.markerName;
+        }
+
+        public TerrainType GetTerrainType
         {
             get
             {

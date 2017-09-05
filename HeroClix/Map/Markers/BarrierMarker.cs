@@ -6,6 +6,7 @@ namespace HeroClix.Map
         public BarrierMarker(IGameElement creator)
             : base(creator)
         {
+            this.markerName = "Barrier";
             this.terrainType = TerrainType.Blocking;
         }
     }

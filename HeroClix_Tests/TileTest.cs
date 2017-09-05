@@ -9,7 +9,7 @@ namespace HeroClix_Tests
     public class TileTest
     {
         [TestMethod]
-        public void Tile_CanAddMultipleObjects()
+        public void Tile_Add_MultipleObjects_Succeeds()
         {
             Tile tile = new Tile();
 
@@ -20,8 +20,8 @@ namespace HeroClix_Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "A second character is now occupying the same tile as another character.")]
-        public void Tile_CanNotAddTwoCharacters()
+        [ExpectedException(typeof(InvalidOperationException), "A second character is now occupying the same tile as another character.")]
+        public void Tile_Add_TwoCharacters_Fails()
         {
             Tile tile = new Tile();
 
@@ -47,17 +47,17 @@ namespace HeroClix_Tests
         }
 
         [TestMethod]
-        public void Tile_CorrectlyDeterminesCurrentTerrain_EmptyTerrainMarkerStack()
+        public void Tile_CurrentTerrain_EmptyTerrainMarkerStack()
         {
             Tile clearTile = new Tile();
             Tile waterTile = new Tile(TerrainType.Water);
-            
+
             Assert.IsTrue(clearTile.GetTerrainType() == TerrainType.Clear);
             Assert.IsTrue(waterTile.GetTerrainType() == TerrainType.Water);
         }
 
         [TestMethod]
-        public void Tile_CorrectlyDeterminesCurrentTerrain_UsingTerrainMarkerStack()
+        public void Tile_CurrentTerrain_NonEmptyTerrainMarkerStack()
         {
             Tile tile = new Tile();
             HeroClixCharacter character = new HeroClixCharacter();
@@ -76,6 +76,38 @@ namespace HeroClix_Tests
             Assert.IsTrue(tile.GetTerrainType() == TerrainType.Hindering);
             tile.RemoveMarker();
             Assert.IsTrue(tile.GetTerrainType() == TerrainType.Clear);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "An invalid marker was placed on a tile of blocking terrain.")]
+        public void Tile_AddMarker_ToBlockingTerrain_Fails()
+        {
+            Tile tile = new Tile(TerrainType.Blocking);
+            HeroClixCharacter character = new HeroClixCharacter();
+
+            tile.AddMarker(new SmokeMarker(character));
+        }
+
+        [TestMethod]
+        public void Tile_AddMarker_Clear_ToBlockingTerrain()
+        {
+            Tile tile = new Tile(TerrainType.Blocking);
+            HeroClixCharacter character = new HeroClixCharacter();
+
+            tile.AddMarker(new ClearMarker(character));
+
+            Assert.IsTrue(tile.GetTerrainType() == TerrainType.Clear);
+        }
+
+        [TestMethod]
+        public void Tile_AddMarker_Debris_ToBlockingTerrain()
+        {
+            Tile tile = new Tile(TerrainType.Blocking);
+            HeroClixCharacter character = new HeroClixCharacter();
+
+            tile.AddMarker(new DebrisMarker(character));
+
+            Assert.IsTrue(tile.GetTerrainType() == TerrainType.Hindering);
         }
     }
 }

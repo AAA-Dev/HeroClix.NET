@@ -9,6 +9,8 @@ namespace HeroClix.Map
 {
     public interface IMarker : IGamePiece
     {
-        TerrainType MyTerrainType { get; }
+        string GetName();
+
+        TerrainType GetTerrainType { get; }
     }
 }

@@ -6,6 +6,7 @@ namespace HeroClix.Map
         public FireMarker(IGameElement creator)
             : base(creator)
         {
+            this.markerName = "Fire";
             this.terrainType = TerrainType.Blocking;
         }
     }
