@@ -36,9 +36,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Compile Include="GameElements\Characters\HeroClixCharacter.cs" />
+    <Compile Include="GameElements\GamePieces\Characters\HeroClixCharacter.cs" />
     <Compile Include="GameElements\IGameElement.cs" />
-    <Compile Include="GameElements\IGamePiece.cs" />
+    <Compile Include="GameElements\GamePieces\IGamePiece.cs" />
     <Compile Include="HeroClixMain.cs" />
     <Compile Include="Map\Markers\BarrierMarker.cs" />
     <Compile Include="Map\Markers\ClearMarker.cs" />
@@ -57,7 +57,7 @@
     <Compile Include="GameArea.Designer.cs">
       <DependentUpon>GameArea.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameElements\Objects\HeroClixObject.cs" />
+    <Compile Include="GameElements\GamePieces\Objects\HeroClixObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
