@@ -3,12 +3,11 @@
     public enum TerrainType
     {
         Clear,
-        Blocking,
         Hindering,
+        Blocking,
+        Elevated,
         Water,
         Obscuring,
-        Windows,
-        Elevated,
         Special
     }
 }
