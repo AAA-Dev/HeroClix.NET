@@ -13,6 +13,7 @@ namespace HeroClix.Map
     public class Tile
     {
         private TerrainType defaultTerrainType;
+        private BorderDetails border;
         private int elevationLevel;
         private List<IGamePiece> gamePieces;
         private Stack<IMarker> markers;
@@ -23,9 +24,20 @@ namespace HeroClix.Map
         public Tile()
         {
             defaultTerrainType = TerrainType.Clear;
+            border = new BorderDetails();
             markers = new Stack<IMarker>();
             elevationLevel = 1;
             gamePieces = new List<IGamePiece>();
+        }
+
+        /// <summary>
+        /// Creates a single, unoccupied, clear tile with explicitly defined borders.
+        /// </summary>
+        /// <param name="top">The BorderDetails of the tile.</param>
+        public Tile(BorderDetails borderDetails)
+            : this()
+        {
+            border = borderDetails;
         }
 
         /// <summary>
@@ -39,6 +51,17 @@ namespace HeroClix.Map
         }
 
         /// <summary>
+        /// Creates a single, unoccupied tile of the given TerrainType with explicitly defined borders.
+        /// </summary>
+        /// <param name="type">The TerrainType of the tile.</param>
+        /// <param name="borderDetails">The BorderDetails of the tile.</param>
+        public Tile(TerrainType type, BorderDetails borderDetails)
+            : this(type)
+        {
+            border = borderDetails;
+        }
+
+        /// <summary>
         /// Creates a single, clear, unoccupied tile at the given ElevationLevel.
         /// </summary>
         /// <param name="elevation">The ElevationLevel of the tile.</param>
@@ -46,6 +69,17 @@ namespace HeroClix.Map
             : this()
         {
             elevationLevel = elevation;
+        }
+
+        /// <summary>
+        /// Creates a single, clear, unoccupied tile at the given ElevationLevel with explicitly defined borders.
+        /// </summary>
+        /// <param name="elevation">The ElevationLevel of the tile.</param>
+        /// <param name="borderDetails">The BorderDetails of the tile.</param>
+        public Tile(int elevation, BorderDetails borderDetails)
+            : this(elevation)
+        {
+            border = borderDetails;
         }
 
         /// <summary>
@@ -57,6 +91,18 @@ namespace HeroClix.Map
             : this(type)
         {
             elevationLevel = elevation;
+        }
+
+        /// <summary>
+        /// Creates a single, unoccupied tile of the given TerrainType at the given ElevationLevel with border explicitly defined.
+        /// </summary>
+        /// <param name="type">The TerrainType of the tile.</param>
+        /// <param name="elevation">The ElevationLevel of the tile.</param>
+        /// <param name="borderDetails">The BorderDetails of the tile.</param>
+        public Tile(TerrainType type, int elevation, BorderDetails borderDetails)
+            : this(type, elevation)
+        {
+            border = borderDetails;
         }
 
         /// <summary>
@@ -129,6 +175,14 @@ namespace HeroClix.Map
                 throw new InvalidOperationException("A character is already occupying this tile.");
             }
             gamePieces.Add(element);
+        }
+
+        public struct BorderDetails
+        {
+            public BorderType Top { get; set; }
+            public BorderType Right { get; set; }
+            public BorderType Bottom { get; set; }
+            public BorderType Left { get; set; }
         }
     }
 }
