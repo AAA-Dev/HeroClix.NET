@@ -4,6 +4,7 @@
     {
         None,
         Wall,
+        Indoor,
         Ledge,
         ElevationChange,
         Window,

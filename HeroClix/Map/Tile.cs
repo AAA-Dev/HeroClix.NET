@@ -179,10 +179,10 @@ namespace HeroClix.Map
 
         public struct BorderDetails
         {
-            public BorderType Top { get; set; }
-            public BorderType Right { get; set; }
-            public BorderType Bottom { get; set; }
-            public BorderType Left { get; set; }
+            public List<BorderType> Top { get; set; }
+            public List<BorderType> Right { get; set; }
+            public List<BorderType> Bottom { get; set; }
+            public List<BorderType> Left { get; set; }
         }
     }
 }
