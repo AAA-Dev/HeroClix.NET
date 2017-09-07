@@ -47,6 +47,25 @@ namespace HeroClix_Tests
         }
 
         [TestMethod]
+        public void Tile_With_SingleObject_IsOccupied_False()
+        {
+            Tile tile = new Tile();
+            tile.AddGamePiece(new HeroClixObject());
+
+            Assert.IsFalse(tile.IsOccupied);
+        }
+
+        [TestMethod]
+        public void Tile_With_MultipleObjects_IsOccupied_False()
+        {
+            Tile tile = new Tile();
+            tile.AddGamePiece(new HeroClixObject());
+            tile.AddGamePiece(new HeroClixObject());
+
+            Assert.IsFalse(tile.IsOccupied);
+        }
+
+        [TestMethod]
         public void Tile_CurrentTerrain_EmptyTerrainMarkerStack()
         {
             Tile clearTile = new Tile();
