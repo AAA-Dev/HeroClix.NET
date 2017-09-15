@@ -37,7 +37,7 @@ namespace HeroClix.Map
         public Tile(BorderDetails borderDetails)
             : this()
         {
-            border = borderDetails;
+            border = ValidateBorderDetails(borderDetails);
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace HeroClix.Map
         public Tile(TerrainType type, BorderDetails borderDetails)
             : this(type)
         {
-            border = borderDetails;
+            border = ValidateBorderDetails(borderDetails);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace HeroClix.Map
         public Tile(int elevation, BorderDetails borderDetails)
             : this(elevation)
         {
-            border = borderDetails;
+            border = ValidateBorderDetails(borderDetails);
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace HeroClix.Map
         public Tile(TerrainType type, int elevation, BorderDetails borderDetails)
             : this(type, elevation)
         {
-            border = borderDetails;
+            border = ValidateBorderDetails(borderDetails);
         }
 
         /// <summary>
@@ -177,6 +177,74 @@ namespace HeroClix.Map
             gamePieces.Add(element);
         }
 
+        /// <summary>
+        /// Returns the BorderDetails of the Tile.
+        /// </summary>
+        /// <returns>The BorderDetails of the Tile.</returns>
+        public BorderDetails GetBorderDetails()
+        {
+            return border;
+        }
+
+        /// <summary>
+        /// Returns a valid BorderDetails object for the Tile. Throws an exception if there is an invalid border present.
+        /// </summary>
+        /// <param name="bordersToValidate">The borders to validate.</param>
+        /// <exception cref="InvalidOperationException">Thrown if there is an invalid border in "bordersToValidate".</exception>
+        /// <returns>A validated BorderDetails object.</returns>
+        private BorderDetails ValidateBorderDetails(BorderDetails bordersToValidate)
+        {
+            bordersToValidate.Top = ValidateBorder(bordersToValidate.Top);
+            bordersToValidate.Right = ValidateBorder(bordersToValidate.Right);
+            bordersToValidate.Bottom = ValidateBorder(bordersToValidate.Bottom);
+            bordersToValidate.Left = ValidateBorder(bordersToValidate.Left);
+
+            return bordersToValidate;
+        }
+
+        /// <summary>
+        /// Returns a valid List of BorderTypes for one side of a Tile. Throws an exception if the border is invalid.
+        /// </summary>
+        /// <param name="borderToValidate">The border to validate.</param>
+        /// /// <exception cref="InvalidOperationException">Thrown if the border is invalid.</exception>
+        /// <returns>A validated List of BorderTypes for the side of a Tile</returns>
+        private List<BorderType> ValidateBorder(List<BorderType> borderToValidate)
+        {
+            if (borderToValidate == null)
+            {
+                return new List<BorderType>();
+            }
+
+            if (borderToValidate.Count != borderToValidate.Distinct().Count())
+            {
+                throw new InvalidOperationException("There exists a Tile where the borders on a single side of the tile are not unique.");
+            }
+
+            if (borderToValidate.Exists(x => x == BorderType.Wall) && borderToValidate.Exists(x => x == BorderType.Door))
+            {
+                throw new InvalidOperationException("A Wall cannot share a border with a Door.");
+            }
+
+            if (borderToValidate.Exists(x => x == BorderType.Wall) && borderToValidate.Exists(x => x == BorderType.Window))
+            {
+                throw new InvalidOperationException("A Wall cannot share a border with a Window.");
+            }
+
+            if (borderToValidate.Exists(x => x == BorderType.Wall) && borderToValidate.Exists(x => x == BorderType.ElevationChange))
+            {
+                throw new InvalidOperationException("A Wall cannot share a border with an ElevationChange.");
+            }
+
+            if (borderToValidate.Exists(x => x == BorderType.Window) && borderToValidate.Exists(x => x == BorderType.Door))
+            {
+                throw new InvalidOperationException("A Window cannot share a border with a Door.");
+            }
+            return borderToValidate;
+        }
+
+        /// <summary>
+        /// A struct which represents the borders of a Tile.
+        /// </summary>
         public struct BorderDetails
         {
             public List<BorderType> Top { get; set; }

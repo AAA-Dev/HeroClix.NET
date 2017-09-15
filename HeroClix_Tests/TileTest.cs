@@ -128,5 +128,88 @@ namespace HeroClix_Tests
 
             Assert.IsTrue(tile.GetTerrainType() == TerrainType.Hindering);
         }
+
+        [TestMethod]
+        public void BorderDetails_Borders_CannotBeNull_True()
+        {
+            HeroClix.Map.Tile.BorderDetails allNull = new HeroClix.Map.Tile.BorderDetails();
+
+            Tile tile = new Tile(allNull);
+            Assert.IsNotNull(tile.GetBorderDetails().Top);
+            Assert.IsNotNull(tile.GetBorderDetails().Right);
+            Assert.IsNotNull(tile.GetBorderDetails().Bottom);
+            Assert.IsNotNull(tile.GetBorderDetails().Left);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "The Top border of a tile contains duplicate BorderTypes.")]
+        public void BorderDetails_Borders_MustHaveUniqueBorderTypes()
+        {
+            HeroClix.Map.Tile.BorderDetails borders = new HeroClix.Map.Tile.BorderDetails();
+
+            borders.Top = new System.Collections.Generic.List<BorderType>(){
+                BorderType.Wall,
+                BorderType.Wall
+            };
+
+            Tile tile = new Tile(borders);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "A Wall and a Door share the same border on a Tile.")]
+        public void BorderDetails_Wall_And_Door_CannotShareABorder()
+        {
+            HeroClix.Map.Tile.BorderDetails borders = new HeroClix.Map.Tile.BorderDetails();
+
+            borders.Top = new System.Collections.Generic.List<BorderType>(){
+                BorderType.Wall,
+                BorderType.Door
+            };
+
+            Tile tile = new Tile(borders);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "A Wall and a Window share the same border on a Tile.")]
+        public void BorderDetails_Wall_And_Window_CannotShareABorder()
+        {
+            HeroClix.Map.Tile.BorderDetails borders = new HeroClix.Map.Tile.BorderDetails();
+
+            borders.Top = new System.Collections.Generic.List<BorderType>(){
+                BorderType.Wall,
+                BorderType.Window
+            };
+
+            Tile tile = new Tile(borders);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "A Wall and an ElevationChange share the same border on a Tile.")]
+        public void BorderDetails_Wall_And_ElevationChange_CannotShareABorder()
+        {
+            HeroClix.Map.Tile.BorderDetails borders = new HeroClix.Map.Tile.BorderDetails();
+
+            borders.Top = new System.Collections.Generic.List<BorderType>(){
+                BorderType.Wall,
+                BorderType.ElevationChange
+            };
+
+            Tile tile = new Tile(borders);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "A Window and a Door share the same border on a Tile.")]
+        public void BorderDetails_Window_And_Door_CannotShareABorder()
+        {
+            HeroClix.Map.Tile.BorderDetails borders = new HeroClix.Map.Tile.BorderDetails();
+
+            borders.Top = new System.Collections.Generic.List<BorderType>(){
+                BorderType.Window,
+                BorderType.Door
+            };
+
+            Tile tile = new Tile(borders);
+        }
+
     }
 }
