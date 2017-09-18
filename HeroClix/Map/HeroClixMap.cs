@@ -21,7 +21,7 @@ namespace HeroClix.Map
         public HeroClixMap()
             : this(STANDARD_ROWS, STANDARD_COLUMNS)
         {
-            // no-op
+            Name = "";
         }
 
         /// <summary>
@@ -43,13 +43,20 @@ namespace HeroClix.Map
         }
 
         /// <summary>
-        /// Creates a HeroClix map using the specified 2D array of Tiles.
+        /// Creates a named HeroClix map using the specified 2D array of Tiles.
         /// </summary>
+        /// <param name="mapName">The name of the HeroClix map.</param>
         /// <param name="tiles">The 2D array of Tiles which make up the map.</param>
-        public HeroClixMap(Tile[,] tiles)
+        public HeroClixMap(string mapName, Tile[,] mapTiles)
         {
-            this.tiles = tiles;
+            Name = mapName;
+            tiles = mapTiles;
         }
+
+        /// <summary>
+        /// Gets or Sets the name of a HeroClix map.
+        /// </summary>
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns all of the tiles that a HeroClixMap consists of as a 2D array.

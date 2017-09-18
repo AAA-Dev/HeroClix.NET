@@ -19,7 +19,7 @@ namespace HeroClix_Tests
                 {new Tile(HeroClix.TerrainType.Blocking), new Tile()}
             };
 
-            twoByTwoMap = new HeroClixMap(tiles);
+            twoByTwoMap = new HeroClixMap("TEST", tiles);
 
             Assert.IsTrue(defaultMap.GetTiles().Length == 384);
             Assert.IsTrue(fiveByFiveMap.GetTiles().Length == 25);
