@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace HeroClix.Map
 {
     /// <summary>
-    /// A single Tile in HeroClix Map.
+    /// A single Tile in a HeroClix Map.
     /// </summary>
     public class Tile
     {

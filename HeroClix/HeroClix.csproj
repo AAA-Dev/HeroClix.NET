@@ -41,6 +41,7 @@
     <Compile Include="GameElements\GamePieces\IGamePiece.cs" />
     <Compile Include="HeroClixMain.cs" />
     <Compile Include="Map\BorderType.cs" />
+    <Compile Include="Map\HeroClixMap.cs" />
     <Compile Include="Map\Markers\BarrierMarker.cs" />
     <Compile Include="Map\Markers\ClearMarker.cs" />
     <Compile Include="Map\Markers\DebrisMarker.cs" />

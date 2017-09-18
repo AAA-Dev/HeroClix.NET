@@ -3,6 +3,7 @@
     public enum BorderType
     {
         None,
+        StartingArea,
         Wall,
         Indoor,
         Ledge,
