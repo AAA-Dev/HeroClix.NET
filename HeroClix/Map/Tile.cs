@@ -24,7 +24,7 @@ namespace HeroClix.Map
         public Tile()
         {
             defaultTerrainType = TerrainType.Clear;
-            border = new BorderDetails();
+            border = ValidateBorderDetails(new BorderDetails());
             markers = new Stack<IMarker>();
             elevationLevel = 1;
             gamePieces = new List<IGamePiece>();

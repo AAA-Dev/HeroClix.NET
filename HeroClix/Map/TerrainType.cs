@@ -1,4 +1,4 @@
-﻿namespace HeroClix
+﻿namespace HeroClix.Map
 {
     public enum TerrainType
     {
