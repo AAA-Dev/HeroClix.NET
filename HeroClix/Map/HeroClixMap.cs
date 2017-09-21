@@ -15,6 +15,7 @@ namespace HeroClix.Map
         private const int STANDARD_COLUMNS = 24;
         private Tile[,] tiles;
         private MapType type;
+        private IntellectualProperty intellectualProperty;
 
         /// <summary>
         /// Creates a standard sized, outdoor HeroClix map filled with clear Tiles.
@@ -23,6 +24,7 @@ namespace HeroClix.Map
         {
             Name = "";
             type = MapType.Outdoor;
+            intellectualProperty = IntellectualProperty.Other;
             tiles = new Tile[STANDARD_ROWS, STANDARD_COLUMNS];
 
             for (int i = 0; i < STANDARD_ROWS; i++)
@@ -41,10 +43,11 @@ namespace HeroClix.Map
         /// <param name="mapType">The type of HeroClix map being created.</param>
         /// <param name="rows">The number of rows the map will have.</param>
         /// <param name="columns">The number of columns the map will have.</param>
-        public HeroClixMap(string mapName, MapType mapType, int rows, int columns)
+        public HeroClixMap(string mapName, MapType mapType, IntellectualProperty property, int rows, int columns)
         {
             Name = mapName;
             type = mapType;
+            intellectualProperty = property;
             tiles = new Tile[rows, columns];
 
             for (int i = 0; i < rows; i++)
@@ -62,10 +65,11 @@ namespace HeroClix.Map
         /// <param name="mapName">The name of the HeroClix map being created.</param>
         /// <param name="mapType">The type of HeroClix map being created.</param>
         /// <param name="tiles">The 2D array of Tiles which make up the map.</param>
-        public HeroClixMap(string mapName, MapType mapType, Tile[,] mapTiles)
+        public HeroClixMap(string mapName, MapType mapType, IntellectualProperty property, Tile[,] mapTiles)
         {
             Name = mapName;
             type = mapType;
+            intellectualProperty = property;
             tiles = ValidateTiles(mapTiles);
         }
 
@@ -73,6 +77,17 @@ namespace HeroClix.Map
         /// Gets or Sets the name of a HeroClix map.
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets the Intellectualy Property that the HeroClixMap belongs to.
+        /// </summary>
+        public IntellectualProperty IP
+        {
+            get
+            {
+                return intellectualProperty;
+            }
+        }
 
         /// <summary>
         /// Returns all of the tiles that a HeroClixMap consists of as a 2D array.
