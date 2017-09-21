@@ -16,6 +16,8 @@ namespace HeroClix.Map
         private Tile[,] tiles;
         private MapType type;
         private IntellectualProperty intellectualProperty;
+        private string set;
+        private HeroClixAge age;
 
         /// <summary>
         /// Creates a standard sized, outdoor HeroClix map filled with clear Tiles.
@@ -25,6 +27,8 @@ namespace HeroClix.Map
             Name = "";
             type = MapType.Outdoor;
             intellectualProperty = IntellectualProperty.Other;
+            set = "N/A";
+            age = HeroClixAge.Other;
             tiles = new Tile[STANDARD_ROWS, STANDARD_COLUMNS];
 
             for (int i = 0; i < STANDARD_ROWS; i++)
@@ -43,11 +47,13 @@ namespace HeroClix.Map
         /// <param name="mapType">The type of HeroClix map being created.</param>
         /// <param name="rows">The number of rows the map will have.</param>
         /// <param name="columns">The number of columns the map will have.</param>
-        public HeroClixMap(string mapName, MapType mapType, IntellectualProperty property, int rows, int columns)
+        public HeroClixMap(string mapName, MapType mapType, IntellectualProperty property, string setName, HeroClixAge heroClixAge, int rows, int columns)
         {
             Name = mapName;
             type = mapType;
             intellectualProperty = property;
+            set = setName;
+            age = heroClixAge;
             tiles = new Tile[rows, columns];
 
             for (int i = 0; i < rows; i++)
@@ -65,11 +71,13 @@ namespace HeroClix.Map
         /// <param name="mapName">The name of the HeroClix map being created.</param>
         /// <param name="mapType">The type of HeroClix map being created.</param>
         /// <param name="tiles">The 2D array of Tiles which make up the map.</param>
-        public HeroClixMap(string mapName, MapType mapType, IntellectualProperty property, Tile[,] mapTiles)
+        public HeroClixMap(string mapName, MapType mapType, IntellectualProperty property, string setName, HeroClixAge heroClixAge, Tile[,] mapTiles)
         {
             Name = mapName;
             type = mapType;
             intellectualProperty = property;
+            set = setName;
+            age = heroClixAge;
             tiles = ValidateTiles(mapTiles);
         }
 
@@ -79,13 +87,35 @@ namespace HeroClix.Map
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets the Intellectualy Property that the HeroClixMap belongs to.
+        /// Gets the Intellectual Property that the HeroClixMap belongs to.
         /// </summary>
         public IntellectualProperty IP
         {
             get
             {
                 return intellectualProperty;
+            }
+        }
+
+        /// <summary>
+        /// Gets the Set that the HeroClixMap belongs to.
+        /// </summary>
+        public string Set
+        {
+            get
+            {
+                return set;
+            }
+        }
+
+        /// <summary>
+        /// Gets the HeroClixAge that the HeroClixMap belongs to.
+        /// </summary>
+        public HeroClixAge Age
+        {
+            get
+            {
+                return age;
             }
         }
 
