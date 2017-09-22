@@ -12,7 +12,9 @@ namespace HeroClix_Tests
         public void HeroClixMap_Create_CorrectDimensions()
         {
             HeroClixMap defaultMap = new HeroClixMap();
-            HeroClixMap fiveByFiveMap = new HeroClixMap("5x5", MapType.Outdoor, IntellectualProperty.Other, "TestSet", HeroClixAge.Other, 5, 5);
+            HeroClixMap.MapDetails fiveByFiveDetails =
+                new HeroClixMap.MapDetails(IntellectualProperty.Other, "TestSet", "5x5", MapType.Outdoor);
+            HeroClixMap fiveByFiveMap = new HeroClixMap(fiveByFiveDetails, 5, 5);
             HeroClixMap twoByTwoMap;
 
             Tile[,] tiles = new Tile[,]{
@@ -20,7 +22,9 @@ namespace HeroClix_Tests
                 {new Tile(TerrainType.Blocking), new Tile()}
             };
 
-            twoByTwoMap = new HeroClixMap("2x2", MapType.Indoor, IntellectualProperty.Other, "TestSet", HeroClixAge.Other, tiles);
+            HeroClixMap.MapDetails twoByTwoDetails =
+                new HeroClixMap.MapDetails(IntellectualProperty.Other, "TestSet", "2x2", MapType.Indoor);
+            twoByTwoMap = new HeroClixMap(twoByTwoDetails, tiles);
 
             Assert.IsTrue(defaultMap.GetTiles().Length == 384);
             Assert.IsTrue(fiveByFiveMap.GetTiles().Length == 25);
@@ -38,7 +42,9 @@ namespace HeroClix_Tests
                 {new Tile(borders)}
             };
 
-            indoorMap = new HeroClixMap("1x1_Indoor", MapType.Indoor, IntellectualProperty.Other, "TestSet", HeroClixAge.Other, tiles);
+            HeroClixMap.MapDetails mapDetails =
+                new HeroClixMap.MapDetails(IntellectualProperty.Other, "TestSet", "1x1_Indoor", MapType.Indoor);
+            indoorMap = new HeroClixMap(mapDetails, tiles);
         }
 
         [TestMethod]
@@ -52,7 +58,9 @@ namespace HeroClix_Tests
                 {new Tile(borders)}
             };
 
-            outdoorMap = new HeroClixMap("1x1_Outdoor", MapType.Outdoor, IntellectualProperty.Other, "TestSet", HeroClixAge.Other, tiles);
+            HeroClixMap.MapDetails mapDetails =
+                new HeroClixMap.MapDetails(IntellectualProperty.Other, "TestSet", "1x1_Outdoor", MapType.Outdoor);
+            outdoorMap = new HeroClixMap(mapDetails, tiles);
         }
 
         [TestMethod]
@@ -64,7 +72,9 @@ namespace HeroClix_Tests
                 {new Tile()}
             };
 
-            indoorOutdoorMap = new HeroClixMap("1x1_IndoorOutdoor", MapType.IndoorOutdoor, IntellectualProperty.Other, "TestSet", HeroClixAge.Other, tiles);
+            HeroClixMap.MapDetails mapDetails =
+                new HeroClixMap.MapDetails(IntellectualProperty.Other, "TestSet", "1x1_IndoorOutdoor", MapType.IndoorOutdoor);
+            indoorOutdoorMap = new HeroClixMap(mapDetails, tiles);
         }
     }
 }
