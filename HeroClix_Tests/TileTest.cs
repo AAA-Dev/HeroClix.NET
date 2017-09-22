@@ -1,7 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using HeroClix;
+﻿using HeroClix;
 using HeroClix.Map;
+using HeroClix.Map.Enums;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace HeroClix_Tests
 {

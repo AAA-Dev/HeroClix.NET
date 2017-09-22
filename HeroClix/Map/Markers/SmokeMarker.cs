@@ -1,4 +1,6 @@
-﻿namespace HeroClix.Map
+﻿using HeroClix.Map.Enums;
+
+namespace HeroClix.Map
 {
     public class SmokeMarker : Marker
     {
