@@ -3,6 +3,7 @@ using HeroClix.Map;
 using HeroClix.Map.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace HeroClix_Tests
 {
@@ -37,8 +38,12 @@ namespace HeroClix_Tests
         public void HeroClixMap_Create_Indoor_CanNotContain_TilesWithIndoorBorders()
         {
             HeroClixMap indoorMap;
-            HeroClix.Map.Tile.BorderDetails borders = new HeroClix.Map.Tile.BorderDetails();
-            borders.Top = new System.Collections.Generic.List<BorderType> { BorderType.Indoor };
+            Tuple<List<BorderType>, List<BorderType>, List<BorderType>, List<BorderType>> borders =
+                Tuple.Create(
+                    new List<BorderType> { BorderType.Indoor },
+                    new List<BorderType>(),
+                    new List<BorderType>(),
+                    new List<BorderType>());
             Tile[,] tiles = new Tile[,]{
                 {new Tile(borders)}
             };
@@ -53,8 +58,12 @@ namespace HeroClix_Tests
         public void HeroClixMap_Create_Outdoor_CanNotContain_TilesWithIndoorBorders()
         {
             HeroClixMap outdoorMap;
-            HeroClix.Map.Tile.BorderDetails borders = new HeroClix.Map.Tile.BorderDetails();
-            borders.Left = new System.Collections.Generic.List<BorderType> { BorderType.Indoor };
+            Tuple<List<BorderType>, List<BorderType>, List<BorderType>, List<BorderType>> borders =
+                Tuple.Create(
+                    new List<BorderType>(),
+                    new List<BorderType>(),
+                    new List<BorderType>(),
+                    new List<BorderType> { BorderType.Indoor });
             Tile[,] tiles = new Tile[,]{
                 {new Tile(borders)}
             };

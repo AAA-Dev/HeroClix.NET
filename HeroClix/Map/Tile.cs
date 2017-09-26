@@ -11,10 +11,10 @@ namespace HeroClix.Map
     /// <summary>
     /// A single Tile in a HeroClix Map.
     /// </summary>
-    public class Tile
+    public class Tile : ITile
     {
         private TerrainType defaultTerrainType;
-        private BorderDetails border;
+        private Tuple<List<BorderType>, List<BorderType>, List<BorderType>, List<BorderType>> border;
         private int elevationLevel;
         private List<IGamePiece> gamePieces;
         private Stack<IMarker> markers;
@@ -25,7 +25,8 @@ namespace HeroClix.Map
         public Tile()
         {
             defaultTerrainType = TerrainType.Clear;
-            border = ValidateBorderDetails(new BorderDetails());
+            border = ValidateBorderDetails(
+                Tuple.Create(new List<BorderType>(), new List<BorderType>(), new List<BorderType>(), new List<BorderType>()));
             markers = new Stack<IMarker>();
             elevationLevel = 1;
             gamePieces = new List<IGamePiece>();
@@ -35,7 +36,7 @@ namespace HeroClix.Map
         /// Creates a single, unoccupied, clear tile with explicitly defined borders.
         /// </summary>
         /// <param name="top">The BorderDetails of the tile.</param>
-        public Tile(BorderDetails borderDetails)
+        public Tile(Tuple<List<BorderType>, List<BorderType>, List<BorderType>, List<BorderType>> borderDetails)
             : this()
         {
             border = ValidateBorderDetails(borderDetails);
@@ -56,7 +57,7 @@ namespace HeroClix.Map
         /// </summary>
         /// <param name="type">The TerrainType of the tile.</param>
         /// <param name="borderDetails">The BorderDetails of the tile.</param>
-        public Tile(TerrainType type, BorderDetails borderDetails)
+        public Tile(TerrainType type, Tuple<List<BorderType>, List<BorderType>, List<BorderType>, List<BorderType>> borderDetails)
             : this(type)
         {
             border = ValidateBorderDetails(borderDetails);
@@ -77,7 +78,7 @@ namespace HeroClix.Map
         /// </summary>
         /// <param name="elevation">The ElevationLevel of the tile.</param>
         /// <param name="borderDetails">The BorderDetails of the tile.</param>
-        public Tile(int elevation, BorderDetails borderDetails)
+        public Tile(int elevation, Tuple<List<BorderType>, List<BorderType>, List<BorderType>, List<BorderType>> borderDetails)
             : this(elevation)
         {
             border = ValidateBorderDetails(borderDetails);
@@ -100,7 +101,7 @@ namespace HeroClix.Map
         /// <param name="type">The TerrainType of the tile.</param>
         /// <param name="elevation">The ElevationLevel of the tile.</param>
         /// <param name="borderDetails">The BorderDetails of the tile.</param>
-        public Tile(TerrainType type, int elevation, BorderDetails borderDetails)
+        public Tile(TerrainType type, int elevation, Tuple<List<BorderType>, List<BorderType>, List<BorderType>, List<BorderType>> borderDetails)
             : this(type, elevation)
         {
             border = ValidateBorderDetails(borderDetails);
@@ -182,7 +183,7 @@ namespace HeroClix.Map
         /// Returns the BorderDetails of the Tile.
         /// </summary>
         /// <returns>The BorderDetails of the Tile.</returns>
-        public BorderDetails GetBorderDetails()
+        public Tuple<List<BorderType>, List<BorderType>, List<BorderType>, List<BorderType>> GetBorderDetails()
         {
             return border;
         }
@@ -193,14 +194,15 @@ namespace HeroClix.Map
         /// <param name="bordersToValidate">The borders to validate.</param>
         /// <exception cref="InvalidOperationException">Thrown if there is an invalid border in "bordersToValidate".</exception>
         /// <returns>A validated BorderDetails object.</returns>
-        private BorderDetails ValidateBorderDetails(BorderDetails bordersToValidate)
+        private Tuple<List<BorderType>, List<BorderType>, List<BorderType>, List<BorderType>>
+            ValidateBorderDetails(Tuple<List<BorderType>, List<BorderType>, List<BorderType>, List<BorderType>> bordersToValidate)
         {
-            bordersToValidate.Top = ValidateBorder(bordersToValidate.Top);
-            bordersToValidate.Right = ValidateBorder(bordersToValidate.Right);
-            bordersToValidate.Bottom = ValidateBorder(bordersToValidate.Bottom);
-            bordersToValidate.Left = ValidateBorder(bordersToValidate.Left);
+            List<BorderType> validatedTopBorder = ValidateBorder(bordersToValidate.Item1);
+            List<BorderType> validatedRightBorder = ValidateBorder(bordersToValidate.Item2);
+            List<BorderType> validatedBottomBorder = ValidateBorder(bordersToValidate.Item3);
+            List<BorderType> validatedLeftBorder = ValidateBorder(bordersToValidate.Item4);
 
-            return bordersToValidate;
+            return Tuple.Create(validatedTopBorder, validatedRightBorder, validatedBottomBorder, validatedLeftBorder);
         }
 
         /// <summary>
@@ -241,17 +243,6 @@ namespace HeroClix.Map
                 throw new InvalidOperationException("A Window cannot share a border with a Door.");
             }
             return borderToValidate;
-        }
-
-        /// <summary>
-        /// A struct which represents the borders of a Tile.
-        /// </summary>
-        public struct BorderDetails
-        {
-            public List<BorderType> Top { get; set; }
-            public List<BorderType> Right { get; set; }
-            public List<BorderType> Bottom { get; set; }
-            public List<BorderType> Left { get; set; }
         }
     }
 }

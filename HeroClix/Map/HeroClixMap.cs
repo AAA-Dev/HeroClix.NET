@@ -172,10 +172,10 @@ namespace HeroClix.Map
         private bool IndoorBorderExists(Tile tile)
         {
             bool indoorBorderFound = false;
-            List<BorderType> topBorder = tile.GetBorderDetails().Top;
-            List<BorderType> rightBorder = tile.GetBorderDetails().Right;
-            List<BorderType> bottomBorder = tile.GetBorderDetails().Bottom;
-            List<BorderType> leftBorder = tile.GetBorderDetails().Left;
+            List<BorderType> topBorder = tile.GetBorderDetails().Item1;
+            List<BorderType> rightBorder = tile.GetBorderDetails().Item2;
+            List<BorderType> bottomBorder = tile.GetBorderDetails().Item3;
+            List<BorderType> leftBorder = tile.GetBorderDetails().Item4;
             if (topBorder.Any() && topBorder.Exists(x => x == BorderType.Indoor)
                 || rightBorder.Any() && rightBorder.Exists(x => x == BorderType.Indoor)
                 || bottomBorder.Any() && bottomBorder.Exists(x => x == BorderType.Indoor)
