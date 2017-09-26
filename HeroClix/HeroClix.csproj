@@ -42,9 +42,13 @@
     <Compile Include="GameElements\IGameElement.cs" />
     <Compile Include="GameElements\GamePieces\IGamePiece.cs" />
     <Compile Include="HeroClixMain.cs" />
+    <Compile Include="Map\IndoorOutdoorMap.cs" />
+    <Compile Include="Map\OutdoorMap.cs" />
     <Compile Include="Map\Enums\BorderType.cs" />
     <Compile Include="Map\Enums\MapType.cs" />
     <Compile Include="Map\HeroClixMap.cs" />
+    <Compile Include="Map\IHeroClixMap.cs" />
+    <Compile Include="Map\IndoorMap.cs" />
     <Compile Include="Map\ITile.cs" />
     <Compile Include="Map\Markers\BarrierMarker.cs" />
     <Compile Include="Map\Markers\ClearMarker.cs" />

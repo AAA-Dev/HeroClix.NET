@@ -13,22 +13,19 @@ namespace HeroClix_Tests
         [TestMethod]
         public void HeroClixMap_Create_CorrectDimensions()
         {
-            HeroClixMap defaultMap = new HeroClixMap();
-            HeroClixMap.MapDetails fiveByFiveDetails =
-                new HeroClixMap.MapDetails(IntellectualProperty.Other, "TestSet", "5x5", MapType.Outdoor);
-            HeroClixMap fiveByFiveMap = new HeroClixMap(fiveByFiveDetails, 5, 5);
-            HeroClixMap twoByTwoMap;
+            IHeroClixMap defaultIndoorMap = new IndoorMap();
+
+            IHeroClixMap fiveByFiveMap = new OutdoorMap(IntellectualProperty.Other, "TestSet", "5x5", 5, 5);
+            IHeroClixMap twoByTwoMap;
 
             Tile[,] tiles = new Tile[,]{
                 {new Tile(), new Tile(TerrainType.Hindering)},
                 {new Tile(TerrainType.Blocking), new Tile()}
             };
 
-            HeroClixMap.MapDetails twoByTwoDetails =
-                new HeroClixMap.MapDetails(IntellectualProperty.Other, "TestSet", "2x2", MapType.Indoor);
-            twoByTwoMap = new HeroClixMap(twoByTwoDetails, tiles);
+            twoByTwoMap = new IndoorMap(IntellectualProperty.Other, "TestSet", "2x2", tiles);
 
-            Assert.IsTrue(defaultMap.GetTiles().Length == 384);
+            Assert.IsTrue(defaultIndoorMap.GetTiles().Length == 384);
             Assert.IsTrue(fiveByFiveMap.GetTiles().Length == 25);
             Assert.IsTrue(twoByTwoMap.GetTiles().Length == 4);
         }
@@ -37,7 +34,7 @@ namespace HeroClix_Tests
         [ExpectedException(typeof(InvalidOperationException), "A Tile on an Indoor map has an Indoor BorderType.")]
         public void HeroClixMap_Create_Indoor_CanNotContain_TilesWithIndoorBorders()
         {
-            HeroClixMap indoorMap;
+            IHeroClixMap indoorMap;
             Tuple<List<BorderType>, List<BorderType>, List<BorderType>, List<BorderType>> borders =
                 Tuple.Create(
                     new List<BorderType> { BorderType.Indoor },
@@ -48,16 +45,14 @@ namespace HeroClix_Tests
                 {new Tile(borders)}
             };
 
-            HeroClixMap.MapDetails mapDetails =
-                new HeroClixMap.MapDetails(IntellectualProperty.Other, "TestSet", "1x1_Indoor", MapType.Indoor);
-            indoorMap = new HeroClixMap(mapDetails, tiles);
+            indoorMap = new IndoorMap(IntellectualProperty.Other, "TestSet", "1x1_Indoor", tiles);
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException), "A Tile on an Outdoor map has an Indoor BorderType.")]
         public void HeroClixMap_Create_Outdoor_CanNotContain_TilesWithIndoorBorders()
         {
-            HeroClixMap outdoorMap;
+            IHeroClixMap outdoorMap;
             Tuple<List<BorderType>, List<BorderType>, List<BorderType>, List<BorderType>> borders =
                 Tuple.Create(
                     new List<BorderType>(),
@@ -68,23 +63,19 @@ namespace HeroClix_Tests
                 {new Tile(borders)}
             };
 
-            HeroClixMap.MapDetails mapDetails =
-                new HeroClixMap.MapDetails(IntellectualProperty.Other, "TestSet", "1x1_Outdoor", MapType.Outdoor);
-            outdoorMap = new HeroClixMap(mapDetails, tiles);
+            outdoorMap = new OutdoorMap(IntellectualProperty.Other, "TestSet", "1x1_Outdoor", tiles);
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException), "There is no tile with an Indoor BorderType on an Indoor/Outdoor map.")]
         public void HeroClixMap_Create_IndoorOutdoor_Contains_TilesWithIndoorBorders()
         {
-            HeroClixMap indoorOutdoorMap;
+            IHeroClixMap indoorOutdoorMap;
             Tile[,] tiles = new Tile[,]{
                 {new Tile()}
             };
 
-            HeroClixMap.MapDetails mapDetails =
-                new HeroClixMap.MapDetails(IntellectualProperty.Other, "TestSet", "1x1_IndoorOutdoor", MapType.IndoorOutdoor);
-            indoorOutdoorMap = new HeroClixMap(mapDetails, tiles);
+            indoorOutdoorMap = new IndoorOutdoorMap(IntellectualProperty.Other, "TestSet", "1x1_IndoorOutdoor", tiles);
         }
     }
 }
