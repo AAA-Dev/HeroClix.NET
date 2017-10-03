@@ -50,6 +50,22 @@ namespace HeroClix.Map
         }
 
         /// <summary>
+        /// Creates a standard sized HeroClix map of the specified type filled with clear Tiles.
+        /// </summary>
+        /// <param name="IP">The Intellectual Property that the HeroClix map being created belongs to.</param>
+        /// <param name="setName">The name of the set that the HeroClix map being created belongs to.</param>
+        /// <param name="mapName">The name of the HeroClix map being created.</param>
+        /// <param name="mapType">The type of HeroClix map being created.</param>
+        public HeroClixMap(IntellectualProperty IP, string setName, string mapName, MapType mapType)
+            : base()
+        {
+            intellectualProperty = IP;
+            set = setName;
+            name = mapName;
+            type = mapType;
+        }
+
+        /// <summary>
         /// Creates a HeroClix map of the specified dimensions filled with clear Tiles.
         /// </summary>
         /// <param name="IP">The Intellectual Property that the HeroClix map being created belongs to.</param>

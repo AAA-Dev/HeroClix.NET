@@ -19,6 +19,15 @@ namespace HeroClix.Map
         }
 
         /// <summary>
+        /// Creates a standard sized, indoor/outdoor HeroClix map filled with clear Tiles.
+        /// </summary>
+        public IndoorOutdoorMap(IntellectualProperty IP, string setName, string mapName)
+            : base(IP, setName, mapName, MapType.IndoorOutdoor)
+        {
+            // no op
+        }
+
+        /// <summary>
         /// Creates an Indoor/Outdoor HeroClix map of the specified dimensions filled with clear Tiles.
         /// </summary>
         /// <param name="IP">The Intellectual Property that the HeroClix map being created belongs to.</param>
