@@ -43,6 +43,7 @@
     <Compile Include="GameElements\GamePieces\IGamePiece.cs" />
     <Compile Include="HeroClixMain.cs" />
     <Compile Include="Map\HeroClixMapFactory.cs" />
+    <Compile Include="Map\IHeroClixMapFactory.cs" />
     <Compile Include="Map\IndoorOutdoorMap.cs" />
     <Compile Include="Map\OutdoorMap.cs" />
     <Compile Include="Map\Enums\BorderType.cs" />
