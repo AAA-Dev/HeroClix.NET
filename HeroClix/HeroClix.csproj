@@ -36,11 +36,22 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Compile Include="Common\HeroClixAge.cs" />
+    <Compile Include="Common\IntellectualProperty.cs" />
     <Compile Include="GameElements\GamePieces\Characters\HeroClixCharacter.cs" />
     <Compile Include="GameElements\IGameElement.cs" />
     <Compile Include="GameElements\GamePieces\IGamePiece.cs" />
     <Compile Include="HeroClixMain.cs" />
-    <Compile Include="Map\BorderType.cs" />
+    <Compile Include="Map\HeroClixMapFactory.cs" />
+    <Compile Include="Map\IHeroClixMapFactory.cs" />
+    <Compile Include="Map\IndoorOutdoorMap.cs" />
+    <Compile Include="Map\OutdoorMap.cs" />
+    <Compile Include="Map\Enums\BorderType.cs" />
+    <Compile Include="Map\Enums\MapType.cs" />
+    <Compile Include="Map\HeroClixMap.cs" />
+    <Compile Include="Map\IHeroClixMap.cs" />
+    <Compile Include="Map\IndoorMap.cs" />
+    <Compile Include="Map\ITile.cs" />
     <Compile Include="Map\Markers\BarrierMarker.cs" />
     <Compile Include="Map\Markers\ClearMarker.cs" />
     <Compile Include="Map\Markers\DebrisMarker.cs" />
@@ -50,7 +61,7 @@
     <Compile Include="Map\Markers\IMarker.cs" />
     <Compile Include="Map\Markers\Marker.cs" />
     <Compile Include="Map\Markers\SmokeMarker.cs" />
-    <Compile Include="Map\TerrainType.cs" />
+    <Compile Include="Map\Enums\TerrainType.cs" />
     <Compile Include="Map\Tile.cs" />
     <Compile Include="GameArea.cs">
       <SubType>Form</SubType>

@@ -1,4 +1,5 @@
-﻿
+﻿using HeroClix.Map.Enums;
+
 namespace HeroClix.Map
 {
     public class BarrierMarker : Marker
