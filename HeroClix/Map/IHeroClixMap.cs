@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HeroClix.Map.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,10 @@ namespace HeroClix.Map
 {
     public interface IHeroClixMap
     {
+        IntellectualProperty IP { get; }
+        string Set { get; }
+        string Name { get; }
+        MapType MapType { get; }
         Tile[,] GetTiles();
     }
 }
