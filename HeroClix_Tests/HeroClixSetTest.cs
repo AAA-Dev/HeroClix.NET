@@ -37,7 +37,7 @@ namespace HeroClix_Tests
                 new SpecialHeroClixObject()
             };
 
-            testSet = new HeroClixSet("TestSet", DateTime.Now, HeroClixAge.Modern, new Bitmap(32, 32), testElements);
+            testSet = new HeroClixSet(IntellectualProperty.Other, "TestSet", DateTime.Now, HeroClixAge.Modern, new Bitmap(32, 32), testElements);
         }
 
         [TestMethod]

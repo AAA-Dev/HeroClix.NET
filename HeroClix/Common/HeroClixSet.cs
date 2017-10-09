@@ -13,6 +13,7 @@ namespace HeroClix.Common
     /// </summary>
     public class HeroClixSet
     {
+        private IntellectualProperty intellectualProperty;
         private string name;
         private DateTime releaseDate;
         private Bitmap symbol;
@@ -24,6 +25,7 @@ namespace HeroClix.Common
         /// </summary>
         public HeroClixSet()
         {
+            this.intellectualProperty = IntellectualProperty.Other;
             this.name = "Default";
             this.releaseDate = DateTime.Now;
             this.age = HeroClixAge.Golden;
@@ -34,18 +36,29 @@ namespace HeroClix.Common
         /// <summary>
         /// Creates a HeroClixSet.
         /// </summary>
-        /// <param name="setName">The name of the se.</param>
+        /// <param name="IP">The intellectual property of the contents of the set.</param>
+        /// <param name="setName">The name of the set.</param>
         /// <param name="setReleaseDate">The date the set was released.</param>
         /// <param name="setAge">What age the set is in.</param>
         /// <param name="setSymbol">The set symbol.</param>
         /// <param name="setElements">The list of game elements(maps, characters, special objects, etc...) that make up the set.</param>
-        public HeroClixSet(string setName, DateTime setReleaseDate, HeroClixAge setAge, Bitmap setSymbol, IGameElement[] setElements)
+        public HeroClixSet(IntellectualProperty IP, string setName, DateTime setReleaseDate, HeroClixAge setAge, Bitmap setSymbol, IGameElement[] setElements)
         {
+            this.intellectualProperty = IP;
             this.name = setName;
             this.releaseDate = setReleaseDate;
             this.age = setAge;
             this.symbol = setSymbol;
             this.elements = setElements;
+        }
+
+        /// <summary>
+        /// Returns the intellectualProperty of the set.
+        /// </summary>
+        /// <returns>The intellectualProperty of the set.</returns>
+        public IntellectualProperty IP()
+        {
+            return this.intellectualProperty;
         }
 
         /// <summary>
