@@ -1,6 +1,6 @@
 ﻿using HeroClix;
-using HeroClix.Map;
-using HeroClix.Map.Enums;
+using HeroClix.Maps;
+using HeroClix.Maps.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -25,9 +25,9 @@ namespace HeroClix_Tests
 
             twoByTwoMap = new IndoorMap(IntellectualProperty.Other, "TestSet", "2x2", tiles);
 
-            Assert.IsTrue(defaultIndoorMap.GetTiles().Length == 384);
-            Assert.IsTrue(fiveByFiveMap.GetTiles().Length == 25);
-            Assert.IsTrue(twoByTwoMap.GetTiles().Length == 4);
+            Assert.IsTrue(defaultIndoorMap.GetTiles().Length == 384, "The map is not the correct size.");
+            Assert.IsTrue(fiveByFiveMap.GetTiles().Length == 25, "The map is not the correct size.");
+            Assert.IsTrue(twoByTwoMap.GetTiles().Length == 4, "The map is not the correct size.");
         }
 
         [TestMethod]

@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -54,6 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HeroClixMapTest.cs" />
     <Compile Include="HeroClixMapFactoryTest.cs" />
+    <Compile Include="HeroClixSetTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HeroClix\HeroClix.csproj">

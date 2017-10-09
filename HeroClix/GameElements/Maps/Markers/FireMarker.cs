@@ -1,6 +1,6 @@
-﻿using HeroClix.Map.Enums;
+﻿using HeroClix.Maps.Enums;
 
-namespace HeroClix.Map
+namespace HeroClix.Maps
 {
     public class FireMarker : Marker
     {

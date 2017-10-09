@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace HeroClix
 {
-    public abstract class HeroClixCharacter : IGamePiece
+    public class StandardHeroClixObject : HeroClixObject
     {
-        public HeroClixCharacter()
+        public StandardHeroClixObject()
         {
             // TODO: Write Implementation
         }

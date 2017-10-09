@@ -1,6 +1,7 @@
 ﻿using HeroClix;
-using HeroClix.Map;
-using HeroClix.Map.Enums;
+using HeroClix.GameElements.GamePieces.Characters;
+using HeroClix.Maps;
+using HeroClix.Maps.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -15,20 +16,20 @@ namespace HeroClix_Tests
         {
             Tile tile = new Tile();
 
-            tile.AddGamePiece(new HeroClixObject());
-            tile.AddGamePiece(new HeroClixObject());
+            tile.AddGamePiece(new StandardHeroClixObject());
+            tile.AddGamePiece(new SpecialHeroClixObject());
 
             Assert.IsTrue(tile.GetGamePieces().Count == 2, "The second object was not added to the tile.");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException), "A second character is now occupying the same tile as another character.")]
-        public void Tile_Add_TwoCharacters_Fails()
+        public void Tile_Add_TwoStandardCharacters_Fails()
         {
             Tile tile = new Tile();
 
-            tile.AddGamePiece(new HeroClixCharacter());
-            tile.AddGamePiece(new HeroClixCharacter());
+            tile.AddGamePiece(new StandardHeroClixCharacter());
+            tile.AddGamePiece(new StandardHeroClixCharacter());
         }
 
         [TestMethod]
@@ -36,35 +37,35 @@ namespace HeroClix_Tests
         {
             Tile tile = new Tile();
 
-            Assert.IsFalse(tile.IsOccupied);
+            Assert.IsFalse(tile.IsOccupied, "A tile is occupied when it should be empty.");
         }
 
         [TestMethod]
-        public void Tile_With_SingleCharacter_IsOccupied_True()
+        public void Tile_With_SingleStandardCharacter_IsOccupied_True()
         {
             Tile tile = new Tile();
-            tile.AddGamePiece(new HeroClixCharacter());
+            tile.AddGamePiece(new StandardHeroClixCharacter());
 
-            Assert.IsTrue(tile.IsOccupied);
+            Assert.IsTrue(tile.IsOccupied, "A tile with a character in it should be considered occupied.");
         }
 
         [TestMethod]
         public void Tile_With_SingleObject_IsOccupied_False()
         {
             Tile tile = new Tile();
-            tile.AddGamePiece(new HeroClixObject());
+            tile.AddGamePiece(new StandardHeroClixObject());
 
-            Assert.IsFalse(tile.IsOccupied);
+            Assert.IsFalse(tile.IsOccupied, "A tile with only an object in it should not be considered occupied.");
         }
 
         [TestMethod]
         public void Tile_With_MultipleObjects_IsOccupied_False()
         {
             Tile tile = new Tile();
-            tile.AddGamePiece(new HeroClixObject());
-            tile.AddGamePiece(new HeroClixObject());
+            tile.AddGamePiece(new StandardHeroClixObject());
+            tile.AddGamePiece(new SpecialHeroClixObject());
 
-            Assert.IsFalse(tile.IsOccupied);
+            Assert.IsFalse(tile.IsOccupied, "A tile with multiple objects in it should not be considered occupied.");
         }
 
         [TestMethod]
@@ -73,15 +74,15 @@ namespace HeroClix_Tests
             Tile clearTile = new Tile();
             Tile waterTile = new Tile(TerrainType.Water);
 
-            Assert.IsTrue(clearTile.GetTerrainType() == TerrainType.Clear);
-            Assert.IsTrue(waterTile.GetTerrainType() == TerrainType.Water);
+            Assert.IsTrue(clearTile.GetTerrainType() == TerrainType.Clear, "A tile with no terrain markers should return it's default terrain type: Clear");
+            Assert.IsTrue(waterTile.GetTerrainType() == TerrainType.Water, "A tile with no terrain markers should return it's default terrain type: Water");
         }
 
         [TestMethod]
         public void Tile_CurrentTerrain_NonEmptyTerrainMarkerStack()
         {
             Tile tile = new Tile();
-            HeroClixCharacter character = new HeroClixCharacter();
+            HeroClixCharacter character = new StandardHeroClixCharacter();
 
             tile.AddMarker(new SmokeMarker(character));
             tile.AddMarker(new WaterMarker(character));
@@ -104,7 +105,7 @@ namespace HeroClix_Tests
         public void Tile_AddMarker_ToBlockingTerrain_Fails()
         {
             Tile tile = new Tile(TerrainType.Blocking);
-            HeroClixCharacter character = new HeroClixCharacter();
+            HeroClixCharacter character = new StandardHeroClixCharacter();
 
             tile.AddMarker(new SmokeMarker(character));
         }
@@ -113,22 +114,22 @@ namespace HeroClix_Tests
         public void Tile_AddMarker_Clear_ToBlockingTerrain()
         {
             Tile tile = new Tile(TerrainType.Blocking);
-            HeroClixCharacter character = new HeroClixCharacter();
+            HeroClixCharacter character = new StandardHeroClixCharacter();
 
             tile.AddMarker(new ClearMarker(character));
 
-            Assert.IsTrue(tile.GetTerrainType() == TerrainType.Clear);
+            Assert.IsTrue(tile.GetTerrainType() == TerrainType.Clear, "The tile's terrain type did not change.");
         }
 
         [TestMethod]
         public void Tile_AddMarker_Debris_ToBlockingTerrain()
         {
             Tile tile = new Tile(TerrainType.Blocking);
-            HeroClixCharacter character = new HeroClixCharacter();
+            HeroClixCharacter character = new StandardHeroClixCharacter();
 
             tile.AddMarker(new DebrisMarker(character));
 
-            Assert.IsTrue(tile.GetTerrainType() == TerrainType.Hindering);
+            Assert.IsTrue(tile.GetTerrainType() == TerrainType.Hindering, "The tile's terrain type did not change.");
         }
 
         [TestMethod]

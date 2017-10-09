@@ -1,11 +1,12 @@
-﻿using HeroClix.Map.Enums;
+﻿using HeroClix.GameElements.GamePieces.Characters;
+using HeroClix.Maps.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HeroClix.Map
+namespace HeroClix.Maps
 {
     public abstract class Marker : IMarker
     {
@@ -15,7 +16,7 @@ namespace HeroClix.Map
 
         protected Marker()
         {
-            creator = new HeroClixCharacter();
+            creator = new StandardHeroClixCharacter();
         }
 
         protected Marker(IGameElement _creator)

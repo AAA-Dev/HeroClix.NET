@@ -34,35 +34,42 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Common\Resources\SetSymbols.resx" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\HeroClixAge.cs" />
+    <Compile Include="Common\HeroClixSet.cs" />
     <Compile Include="Common\IntellectualProperty.cs" />
+    <Compile Include="Common\Resources\SetSymbols.Designer.cs" />
     <Compile Include="GameElements\GamePieces\Characters\HeroClixCharacter.cs" />
+    <Compile Include="GameElements\GamePieces\Characters\StandardHeroClixCharacter.cs" />
+    <Compile Include="GameElements\GamePieces\Objects\SpecialHeroClixObject.cs" />
+    <Compile Include="GameElements\GamePieces\Objects\StandardHeroClixObject.cs" />
     <Compile Include="GameElements\IGameElement.cs" />
     <Compile Include="GameElements\GamePieces\IGamePiece.cs" />
     <Compile Include="HeroClixMain.cs" />
-    <Compile Include="Map\HeroClixMapFactory.cs" />
-    <Compile Include="Map\IHeroClixMapFactory.cs" />
-    <Compile Include="Map\IndoorOutdoorMap.cs" />
-    <Compile Include="Map\OutdoorMap.cs" />
-    <Compile Include="Map\Enums\BorderType.cs" />
-    <Compile Include="Map\Enums\MapType.cs" />
-    <Compile Include="Map\HeroClixMap.cs" />
-    <Compile Include="Map\IHeroClixMap.cs" />
-    <Compile Include="Map\IndoorMap.cs" />
-    <Compile Include="Map\ITile.cs" />
-    <Compile Include="Map\Markers\BarrierMarker.cs" />
-    <Compile Include="Map\Markers\ClearMarker.cs" />
-    <Compile Include="Map\Markers\DebrisMarker.cs" />
-    <Compile Include="Map\Markers\FireMarker.cs" />
-    <Compile Include="Map\Markers\IceMarker.cs" />
-    <Compile Include="Map\Markers\WaterMarker.cs" />
-    <Compile Include="Map\Markers\IMarker.cs" />
-    <Compile Include="Map\Markers\Marker.cs" />
-    <Compile Include="Map\Markers\SmokeMarker.cs" />
-    <Compile Include="Map\Enums\TerrainType.cs" />
-    <Compile Include="Map\Tile.cs" />
+    <Compile Include="GameElements\Maps\HeroClixMapFactory.cs" />
+    <Compile Include="GameElements\Maps\IHeroClixMapFactory.cs" />
+    <Compile Include="GameElements\Maps\IndoorOutdoorMap.cs" />
+    <Compile Include="GameElements\Maps\OutdoorMap.cs" />
+    <Compile Include="GameElements\Maps\Enums\BorderType.cs" />
+    <Compile Include="GameElements\Maps\Enums\MapType.cs" />
+    <Compile Include="GameElements\Maps\HeroClixMap.cs" />
+    <Compile Include="GameElements\Maps\IHeroClixMap.cs" />
+    <Compile Include="GameElements\Maps\IndoorMap.cs" />
+    <Compile Include="GameElements\Maps\ITile.cs" />
+    <Compile Include="GameElements\Maps\Markers\BarrierMarker.cs" />
+    <Compile Include="GameElements\Maps\Markers\ClearMarker.cs" />
+    <Compile Include="GameElements\Maps\Markers\DebrisMarker.cs" />
+    <Compile Include="GameElements\Maps\Markers\FireMarker.cs" />
+    <Compile Include="GameElements\Maps\Markers\IceMarker.cs" />
+    <Compile Include="GameElements\Maps\Markers\WaterMarker.cs" />
+    <Compile Include="GameElements\Maps\Markers\IMarker.cs" />
+    <Compile Include="GameElements\Maps\Markers\Marker.cs" />
+    <Compile Include="GameElements\Maps\Markers\SmokeMarker.cs" />
+    <Compile Include="GameElements\Maps\Enums\TerrainType.cs" />
+    <Compile Include="GameElements\Maps\Tile.cs" />
     <Compile Include="GameArea.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +84,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\Resources\img\set_tmt.png" />
+    <Content Include="Common\Resources\img\set_tmt_inverted.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

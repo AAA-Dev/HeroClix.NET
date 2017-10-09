@@ -1,11 +1,11 @@
-﻿using HeroClix.Map.Enums;
+﻿using HeroClix.Maps.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HeroClix.Map
+namespace HeroClix.Maps
 {
     public class OutdoorMap : HeroClixMap
     {

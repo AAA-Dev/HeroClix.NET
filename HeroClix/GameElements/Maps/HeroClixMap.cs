@@ -1,16 +1,16 @@
-﻿using HeroClix.Map.Enums;
+﻿using HeroClix.Maps.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HeroClix.Map
+namespace HeroClix.Maps
 {
     /// <summary>
     /// The playing field for HeroClix characters
     /// </summary>
-    public abstract class HeroClixMap : IHeroClixMap
+    public abstract class HeroClixMap : IHeroClixMap, IGameElement
     {
         private const int STANDARD_ROWS = 16;
         private const int STANDARD_COLUMNS = 24;

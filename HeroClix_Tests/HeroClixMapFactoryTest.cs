@@ -1,8 +1,8 @@
 ﻿using HeroClix;
-using HeroClix.Map;
+using HeroClix.Maps;
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using HeroClix.Map.Enums;
+using HeroClix.Maps.Enums;
 using System.Collections.Generic;
 
 namespace HeroClix_Tests

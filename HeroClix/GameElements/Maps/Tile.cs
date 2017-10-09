@@ -1,12 +1,12 @@
 ﻿using HeroClix.GameElements;
-using HeroClix.Map.Enums;
+using HeroClix.Maps.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HeroClix.Map
+namespace HeroClix.Maps
 {
     /// <summary>
     /// A single Tile in a HeroClix Map.
@@ -114,7 +114,7 @@ namespace HeroClix.Map
         {
             get
             {
-                return gamePieces.Count(x => x.GetType().Equals(typeof(HeroClixCharacter))) > 0;
+                return gamePieces.Count(x => x.GetType().BaseType.Equals(typeof(HeroClixCharacter))) > 0;
             }
         }
 
@@ -172,7 +172,7 @@ namespace HeroClix.Map
         public void AddGamePiece(IGamePiece element)
         {
             if (element is HeroClixCharacter
-                && gamePieces.Count(x => x.GetType().Equals(typeof(HeroClixCharacter))) > 0)
+                && gamePieces.Count(x => x.GetType().BaseType.Equals(typeof(HeroClixCharacter))) > 0)
             {
                 throw new InvalidOperationException("A character is already occupying this tile.");
             }
