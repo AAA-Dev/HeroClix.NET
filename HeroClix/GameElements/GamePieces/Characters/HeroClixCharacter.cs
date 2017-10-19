@@ -21,7 +21,7 @@ namespace HeroClix
         private string realName;
 
         /// <summary>
-        /// Creates a basic HeroClixCharacter
+        /// Creates a basic HeroClixCharacter.
         /// </summary>
         public HeroClixCharacter()
         {
@@ -33,6 +33,15 @@ namespace HeroClix
             this.realName = String.Empty;
         }
 
+        /// <summary>
+        /// Creates a HeroClixCharacter with the specified properties.
+        /// </summary>
+        /// <param name="IP">The Intellectual Property the character belongs to.</param>
+        /// <param name="setName">The name of the set the character belongs to.</param>
+        /// <param name="num">The collector's number of character within the set the character belongs to.</param>
+        /// <param name="rarityLevel">The rarity level of the character.</param>
+        /// <param name="charName">The character's name.</param>
+        /// <param name="name">The character's real name.</param>
         public HeroClixCharacter(IntellectualProperty IP, string setName, string num, HeroClixRarity rarityLevel, string charName, string name)
         {
             this.intellectualProperty = IP;
@@ -43,31 +52,55 @@ namespace HeroClix
             this.realName = name;
         }
 
+        /// <summary>
+        /// Returns the Intellectual Property that the character belongs to.
+        /// </summary>
+        /// <returns>The Intellectual Property that the character belongs to.</returns>
         public IntellectualProperty GetIP()
         {
             return this.intellectualProperty;
         }
 
+        /// <summary>
+        /// Returns the name of the set that the character belongs to.
+        /// </summary>
+        /// <returns>The name of the set that the character belongs to.</returns>
         public string GetSetName()
         {
             return this.set;
         }
 
+        /// <summary>
+        /// Returns the collector's number of the character for the set the character belongs to.
+        /// </summary>
+        /// <returns>The collector's number of the character for the set the character belongs to.</returns>
         public string GetCollectorsNumber()
         {
             return this.collectorsNumber;
         }
 
+        /// <summary>
+        /// Returns the rarity level of the character.
+        /// </summary>
+        /// <returns>The rarity level of the character.</returns>
         public HeroClixRarity GetRarity()
         {
             return this.rarity;
         }
 
+        /// <summary>
+        /// Returns the character's name.
+        /// </summary>
+        /// <returns>The character's name.</returns>
         public string GetCharacterName()
         {
             return this.characterName;
         }
 
+        /// <summary>
+        /// Returns the character's real name.
+        /// </summary>
+        /// <returns>The character's real name.</returns>
         public string GetRealName()
         {
             return this.realName;
