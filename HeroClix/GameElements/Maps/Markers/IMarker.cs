@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HeroClix.Maps
 {
-    public interface IMarker : IGamePiece
+    public interface IMarker
     {
         string GetName();
 

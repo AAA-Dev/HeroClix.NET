@@ -1,4 +1,5 @@
-﻿using HeroClix.GameElements.GamePieces.Characters;
+﻿using HeroClix.GameElements;
+using HeroClix.GameElements.GamePieces.Characters;
 using HeroClix.Maps.Enums;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HeroClix.Maps
 {
-    public abstract class Marker : IMarker
+    public abstract class Marker : IMarker, IGamePiece
     {
         private IGameElement creator;
         protected string markerName;
