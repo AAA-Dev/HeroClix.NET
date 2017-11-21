@@ -42,6 +42,8 @@
     <Compile Include="Common\HeroClixSet.cs" />
     <Compile Include="Common\IntellectualProperty.cs" />
     <Compile Include="Common\Resources\SetSymbols.Designer.cs" />
+    <Compile Include="GameElements\GamePieces\Characters\Enums\NamedKeyword.cs" />
+    <Compile Include="GameElements\GamePieces\Characters\Enums\GenericKeyword.cs" />
     <Compile Include="GameElements\GamePieces\Characters\HeroClixCharacter.cs" />
     <Compile Include="GameElements\GamePieces\Characters\StandardHeroClixCharacter.cs" />
     <Compile Include="GameElements\Enums\HeroClixRarity.cs" />

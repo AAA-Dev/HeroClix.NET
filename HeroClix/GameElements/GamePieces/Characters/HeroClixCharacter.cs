@@ -1,5 +1,6 @@
 ﻿using HeroClix.GameElements;
 using HeroClix.GameElements.Enums;
+using HeroClix.GameElements.GamePieces.Characters.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace HeroClix
         private string set;
         private string collectorsNumber;
         private HeroClixRarity rarity;
+        private List<NamedKeyword> namedKeywords;
+        private List<GenericKeyword> genericKeywords;
         private string characterName;
         private string realName;
 
@@ -29,6 +32,8 @@ namespace HeroClix
             this.set = String.Empty;
             this.collectorsNumber = String.Empty;
             this.rarity = HeroClixRarity.Common;
+            this.namedKeywords = new List<NamedKeyword>();
+            this.genericKeywords = new List<GenericKeyword>();
             this.characterName = String.Empty;
             this.realName = String.Empty;
         }
@@ -40,14 +45,18 @@ namespace HeroClix
         /// <param name="setName">The name of the set the character belongs to.</param>
         /// <param name="num">The collector's number of character within the set the character belongs to.</param>
         /// <param name="rarityLevel">The rarity level of the character.</param>
+        /// <param name="namedKeywords">The character's named keywords.</param>
+        /// <param name="genericKeywords">The character's generic keywords.</param>
         /// <param name="charName">The character's name.</param>
         /// <param name="name">The character's real name.</param>
-        public HeroClixCharacter(IntellectualProperty IP, string setName, string num, HeroClixRarity rarityLevel, string charName, string name)
+        public HeroClixCharacter(IntellectualProperty IP, string setName, string num, HeroClixRarity rarityLevel, List<NamedKeyword> namedKeywords, List<GenericKeyword> genericKeywords, string charName, string name)
         {
             this.intellectualProperty = IP;
             this.set = setName;
             this.collectorsNumber = num;
             this.rarity = rarityLevel;
+            this.namedKeywords = namedKeywords;
+            this.genericKeywords = genericKeywords;
             this.characterName = charName;
             this.realName = name;
         }
@@ -86,6 +95,24 @@ namespace HeroClix
         public HeroClixRarity GetRarity()
         {
             return this.rarity;
+        }
+
+        /// <summary>
+        /// Returns the character's named keywords.
+        /// </summary>
+        /// <returns>the character's named keywords.</returns>
+        public List<NamedKeyword> GetNamedKeywords()
+        {
+            return this.namedKeywords;
+        }
+
+        /// <summary>
+        /// Returns the character's generic keywords.
+        /// </summary>
+        /// <returns>the character's generic keywords.</returns>
+        public List<GenericKeyword> GetGenericKeywords()
+        {
+            return this.genericKeywords;
         }
 
         /// <summary>
