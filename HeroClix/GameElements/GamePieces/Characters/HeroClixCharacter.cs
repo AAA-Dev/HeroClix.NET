@@ -1,5 +1,6 @@
 ﻿using HeroClix.GameElements;
 using HeroClix.GameElements.Enums;
+using HeroClix.GameElements.GamePieces.Characters;
 using HeroClix.GameElements.GamePieces.Characters.Enums;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace HeroClix
         private List<GenericKeyword> genericKeywords;
         private string characterName;
         private string realName;
+        private Dial dial;
 
         /// <summary>
         /// Creates a basic HeroClixCharacter.
@@ -36,6 +38,7 @@ namespace HeroClix
             this.genericKeywords = new List<GenericKeyword>();
             this.characterName = String.Empty;
             this.realName = String.Empty;
+            this.dial = new Dial();
         }
 
         /// <summary>
@@ -49,7 +52,8 @@ namespace HeroClix
         /// <param name="genericKeywords">The character's generic keywords.</param>
         /// <param name="charName">The character's name.</param>
         /// <param name="name">The character's real name.</param>
-        public HeroClixCharacter(IntellectualProperty IP, string setName, string num, HeroClixRarity rarityLevel, List<NamedKeyword> namedKeywords, List<GenericKeyword> genericKeywords, string charName, string name)
+        /// <param name="characterDial">The character's real name.</param>
+        public HeroClixCharacter(IntellectualProperty IP, string setName, string num, HeroClixRarity rarityLevel, List<NamedKeyword> namedKeywords, List<GenericKeyword> genericKeywords, string charName, string name, Dial characterDial)
         {
             this.intellectualProperty = IP;
             this.set = setName;
@@ -59,6 +63,7 @@ namespace HeroClix
             this.genericKeywords = genericKeywords;
             this.characterName = charName;
             this.realName = name;
+            this.dial = characterDial;
         }
 
         /// <summary>
@@ -131,6 +136,15 @@ namespace HeroClix
         public string GetRealName()
         {
             return this.realName;
+        }
+
+        /// <summary>
+        /// Returns the character's dial.
+        /// </summary>
+        /// <returns>The character's dial.</returns>
+        public Dial GetDial()
+        {
+            return this.dial;
         }
     }
 }
