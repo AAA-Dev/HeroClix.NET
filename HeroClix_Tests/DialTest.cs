@@ -1,7 +1,4 @@
-﻿using HeroClix;
-using HeroClix.GameElements.GamePieces.Characters;
-using HeroClix.Maps;
-using HeroClix.Maps.Enums;
+﻿using HeroClix.GameElements.GamePieces.Characters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;

@@ -52,6 +52,7 @@
     <Compile Include="GameElements\GamePieces\Characters\HeroClixCharacter.cs" />
     <Compile Include="GameElements\GamePieces\Characters\StandardHeroClixCharacter.cs" />
     <Compile Include="GameElements\Enums\HeroClixRarity.cs" />
+    <Compile Include="GameElements\GamePieces\Characters\Token.cs" />
     <Compile Include="GameElements\GamePieces\Objects\SpecialHeroClixObject.cs" />
     <Compile Include="GameElements\GamePieces\Objects\StandardHeroClixObject.cs" />
     <Compile Include="GameElements\IGameElement.cs" />
