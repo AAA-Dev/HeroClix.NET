@@ -24,6 +24,7 @@ namespace HeroClix
         private string characterName;
         private string realName;
         private Dial dial;
+        private List<Token> tokens;
 
         /// <summary>
         /// Creates a basic HeroClixCharacter.
@@ -39,6 +40,7 @@ namespace HeroClix
             this.characterName = String.Empty;
             this.realName = String.Empty;
             this.dial = new Dial();
+            this.tokens = new List<Token>();
         }
 
         /// <summary>
@@ -64,6 +66,7 @@ namespace HeroClix
             this.characterName = charName;
             this.realName = name;
             this.dial = characterDial;
+            this.tokens = new List<Token>();
         }
 
         /// <summary>
@@ -145,6 +148,99 @@ namespace HeroClix
         public Dial GetDial()
         {
             return this.dial;
+        }
+
+        /// <summary>
+        /// Returns a <cref=List> of tokens that are currently on the character.
+        /// </summary>
+        /// <returns>A <cref=List> of tokens that are currently on the character.</returns>
+        public List<Token> GetTokens()
+        {
+            return this.tokens;
+        }
+
+        /// <summary>
+        /// Adds a <cref=Token> to a character.
+        /// </summary>
+        /// <param name="tokenName">The type of <cref=Token> to add.</param>
+        /// <param name="quantity">The quantity to add.</param>
+        /// <param name="designator">The GamePiece assigning the token to the character.</param>
+        public void AddToken(string tokenName, int quantity, IGamePiece designator)
+        {
+            if (!this.tokens.Any() || this.tokens.FirstOrDefault(t => t.Name.Equals(tokenName) && t.TokenDesignator.Equals(designator)) == null)
+            {
+                this.tokens.Add(new Token(tokenName, quantity, designator));
+            }
+            else{
+                var token = this.tokens.FirstOrDefault(t => t.Name.Equals(tokenName) && t.TokenDesignator.Equals(designator));
+                token.Quantity += quantity;
+            }
+        }
+
+        /// <summary>
+        /// Adds a single <cref=Token> to a character.
+        /// </summary>
+        /// <param name="tokenName">The type of <cref=Token> to add.</param>
+        /// <param name="designator">The GamePiece assigning the token to the character.</param>
+        public void AddToken(string tokenName, IGamePiece designator)
+        {
+            AddToken(tokenName, 1, designator);
+        }
+
+        /// <summary>
+        /// Removes a number of named Tokens from a character.
+        /// </summary>
+        /// <param name="tokenName">The name of the <cref=Token> to remove.</param>
+        /// <param name="quantity">The quantity to remove.</param>
+        /// <param name="designator">The GamePiece that originally assigned the token to the character.</param>
+        /// <returns>True is the remove action was successful, False otherwise.</returns>
+        public bool RemoveToken(string tokenName, int quantity, IGamePiece designator)
+        {
+            bool tokenWasRemoved = false;
+
+            if (this.tokens.FirstOrDefault(t => t.Name.Equals(tokenName) && t.TokenDesignator.Equals(designator)) != null)
+            {
+                var token = this.tokens.FirstOrDefault(t => t.Name.Equals(tokenName) && t.TokenDesignator.Equals(designator));
+                token.Quantity -= quantity;
+                tokenWasRemoved = true;
+
+                if (token.Quantity <= 0)
+                {
+                    return this.tokens.Remove(token);
+                }
+            }
+            
+            return tokenWasRemoved;
+        }
+
+        /// <summary>
+        /// Removes a single named Token from a character.
+        /// </summary>
+        /// <param name="tokenName">The name of the <cref=Token> to remove.</param>
+        /// <param name="designator">The GamePiece that originally assigned the token to the character.</param>
+        /// <returns>True is the remove action was successful, False otherwise.</returns>
+        public bool RemoveToken(string tokenName, IGamePiece designator)
+        {
+            return RemoveToken(tokenName, 1, designator);
+        }
+
+        /// <summary>
+        /// Removes all Tokens with the specified name from the character.
+        /// </summary>
+        /// <param name="tokenName">The name of the <cref=Token> to remove.</param>
+        /// <param name="designator">The GamePiece that originally assigned the token to the character.</param>
+        /// <returns>The quantity removed.</returns>
+        public int RemoveAllTokens(string tokenName, IGamePiece designator)
+        {
+            int numberRemoved = 0;
+            var token = this.tokens.FirstOrDefault(t => t.Name.Equals(tokenName) && t.TokenDesignator.Equals(designator));
+            if (token != null)
+            {
+                numberRemoved = token.Quantity;
+            }
+
+            this.tokens.RemoveAll(t => t.Name.Equals(tokenName) && t.TokenDesignator.Equals(designator));
+            return numberRemoved;
         }
     }
 }
