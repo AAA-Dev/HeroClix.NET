@@ -42,7 +42,9 @@
     <Compile Include="Common\HeroClixSet.cs" />
     <Compile Include="Common\IntellectualProperty.cs" />
     <Compile Include="Common\Resources\SetSymbols.Designer.cs" />
+    <Compile Include="GameElements\GamePieces\Characters\BaseCombatInformation.cs" />
     <Compile Include="GameElements\GamePieces\Characters\Click.cs" />
+    <Compile Include="GameElements\GamePieces\Characters\IBaseCombatInformation.cs" />
     <Compile Include="GameElements\GamePieces\Characters\IClick.cs" />
     <Compile Include="GameElements\GamePieces\Characters\IDial.cs" />
     <Compile Include="GameElements\GamePieces\Characters\KOClick.cs" />

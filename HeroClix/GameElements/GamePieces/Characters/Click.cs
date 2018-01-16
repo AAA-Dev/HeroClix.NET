@@ -35,7 +35,7 @@ namespace HeroClix.GameElements.GamePieces.Characters
         }
 
         /// <summary>
-        /// Creates a single Click with the specifies property values.
+        /// Creates a single Click with the specified property values.
         /// </summary>
         /// <param name="clickColor">The Color of the Click.</param>
         /// <param name="clickNumber">The click number.</param>
