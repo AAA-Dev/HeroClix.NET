@@ -25,6 +25,11 @@ namespace HeroClix.Maps
             creator = _creator;
         }
 
+        public int GetPointValue()
+        {
+            throw new InvalidOperationException("HeroClix Markers do not have a point value associated with them.");
+        }
+
         public string GetName()
         {
             return this.markerName;

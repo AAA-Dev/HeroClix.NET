@@ -12,5 +12,6 @@ namespace HeroClix
     /// </summary>
     public interface IGameElement
     {
+        int GetPointValue();
     }
 }

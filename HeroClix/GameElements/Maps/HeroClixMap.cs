@@ -108,6 +108,11 @@ namespace HeroClix.Maps
             tiles = ValidateTiles(mapTiles);
         }
 
+        public int GetPointValue()
+        {
+            throw new InvalidOperationException("HeroClix Maps do not have a point value associated with them.");
+        }
+
         /// <summary>
         /// Gets the Intellectual Property that the HeroClixMap belongs to.
         /// </summary>

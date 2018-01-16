@@ -23,6 +23,7 @@ namespace HeroClix
         private List<GenericKeyword> genericKeywords;
         private string characterName;
         private string realName;
+        private int pointValue;
         private BaseCombatInformation baseCombatInformation;
         private Dial dial;
         private List<Token> tokens;
@@ -40,6 +41,7 @@ namespace HeroClix
             this.genericKeywords = new List<GenericKeyword>();
             this.characterName = String.Empty;
             this.realName = String.Empty;
+            this.pointValue = 0;
             this.baseCombatInformation = new BaseCombatInformation();
             this.dial = new Dial();
             this.tokens = new List<Token>();
@@ -56,9 +58,10 @@ namespace HeroClix
         /// <param name="genericKeywords">The character's generic keywords.</param>
         /// <param name="charName">The character's name.</param>
         /// <param name="name">The character's real name.</param>
+        /// <param name="points">The character's point value.</param>
         /// <param name="characterBase">The character's base information.</param>
         /// <param name="characterDial">The character's dial information.</param>
-        public HeroClixCharacter(IntellectualProperty IP, string setName, string num, HeroClixRarity rarityLevel, List<NamedKeyword> namedKeywords, List<GenericKeyword> genericKeywords, string charName, string name, BaseCombatInformation characterBase, Dial characterDial)
+        public HeroClixCharacter(IntellectualProperty IP, string setName, string num, HeroClixRarity rarityLevel, List<NamedKeyword> namedKeywords, List<GenericKeyword> genericKeywords, string charName, string name, int points, BaseCombatInformation characterBase, Dial characterDial)
         {
             this.intellectualProperty = IP;
             this.set = setName;
@@ -68,6 +71,7 @@ namespace HeroClix
             this.genericKeywords = genericKeywords;
             this.characterName = charName;
             this.realName = name;
+            this.pointValue = points;
             this.baseCombatInformation = characterBase;
             this.dial = characterDial;
             this.tokens = new List<Token>();
@@ -143,6 +147,15 @@ namespace HeroClix
         public string GetRealName()
         {
             return this.realName;
+        }
+
+        /// <summary>
+        /// Returns the character's point value.
+        /// </summary>
+        /// <returns>The character's point value.</returns>
+        public virtual int GetPointValue()
+        {
+            return this.pointValue;
         }
 
         /// <summary>

@@ -13,5 +13,7 @@ namespace HeroClix
         {
             // TODO: Write Implementation
         }
+
+        public abstract int GetPointValue();
     }
 }

@@ -13,5 +13,10 @@ namespace HeroClix
         {
             // TODO: Write Implementation
         }
+
+        public override int GetPointValue()
+        {
+            return 0;
+        }
     }
 }
