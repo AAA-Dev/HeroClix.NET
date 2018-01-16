@@ -44,6 +44,10 @@
     <Compile Include="Common\Resources\SetSymbols.Designer.cs" />
     <Compile Include="GameElements\GamePieces\Characters\BaseCombatInformation.cs" />
     <Compile Include="GameElements\GamePieces\Characters\Click.cs" />
+    <Compile Include="GameElements\GamePieces\Characters\Enums\AttackSymbol.cs" />
+    <Compile Include="GameElements\GamePieces\Characters\Enums\DamageSymbol.cs" />
+    <Compile Include="GameElements\GamePieces\Characters\Enums\DefenseSymbol.cs" />
+    <Compile Include="GameElements\GamePieces\Characters\Enums\SpeedSymbol.cs" />
     <Compile Include="GameElements\GamePieces\Characters\IBaseCombatInformation.cs" />
     <Compile Include="GameElements\GamePieces\Characters\IClick.cs" />
     <Compile Include="GameElements\GamePieces\Characters\IDial.cs" />
