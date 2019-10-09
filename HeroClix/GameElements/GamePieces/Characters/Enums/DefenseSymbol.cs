@@ -6,6 +6,7 @@
     public enum DefenseSymbol
     {
         Standard,
-        Stripe
+        Indomitable,
+        Vehicle
     }
 }

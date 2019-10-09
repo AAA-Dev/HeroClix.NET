@@ -6,7 +6,7 @@
     public enum SpeedSymbol
     {
         Standard,
-        Wing,
-        Dolphin
+        Flight,
+        Swim
     }
 }
